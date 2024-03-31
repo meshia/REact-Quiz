@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import rootReducer from '../redux/reducers';
-import { createStore } from 'redux';
+import { legacy_createStore as createStore } from 'redux';
 import Question from './Question';
 
 
