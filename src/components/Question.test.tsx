@@ -25,7 +25,7 @@ describe('Question Component', () => {
         ]
       };
     render(
-        <Provider store={createStore(rootReducer, { house: initialState })}>
+        <Provider store={createStore(rootReducer, { quiz: initialState })}>
             <Question question={question} />
         </Provider>
     );
