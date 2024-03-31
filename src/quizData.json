@@ -1,0 +1,44 @@
+{
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is the capital of France?",
+        "answers": [
+          { "id": 1, "text": "Paris", "isCorrect": true },
+          { "id": 2, "text": "London", "isCorrect": false },
+          { "id": 3, "text": "Brussels", "isCorrect": false },
+          { "id": 4, "text": "Rome", "isCorrect": false }
+        ]
+      },
+      {
+        "id": 2,
+        "question": "What is the capital of Belgium?",
+        "answers": [
+          { "id": 1, "text": "Paris", "isCorrect": false },
+          { "id": 2, "text": "London", "isCorrect": false },
+          { "id": 3, "text": "Brussels", "isCorrect": true },
+          { "id": 4, "text": "Rome", "isCorrect": false }
+        ]
+      },
+      {
+        "id": 3,
+        "question": "What is 2 + 2?",
+        "answers": [
+          { "id": 1, "text": "3", "isCorrect": false },
+          { "id": 2, "text": "4", "isCorrect": true },
+          { "id": 3, "text": "5", "isCorrect": false },
+          { "id": 4, "text": "6", "isCorrect": false }
+        ]
+      },
+      {
+        "id": 4,
+        "question": "What is 4 + 4?",
+        "answers": [
+          { "id": 1, "text": "4", "isCorrect": false },
+          { "id": 2, "text": "14", "isCorrect": false },
+          { "id": 3, "text": "5", "isCorrect": false },
+          { "id": 4, "text": "8", "isCorrect": true }
+        ]
+      }
+    ]
+  }
