@@ -1,5 +1,5 @@
 import React from 'react';
-import { QuestionType } from '../types/quizTypes';
+import { QuestionType, AnswerType } from '../types/quizTypes';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/reducers';
 import { selectAnswer } from '../redux/actions';
@@ -22,8 +22,8 @@ const Question: React.FC<Props> = ({ question  }) => {
     const dispatch = useDispatch();
     const { currentQuestionIndex, answers } = useSelector((state: RootState) => state.quiz);
 
-    const handleAnswerSelect = (index: number) => {
-        dispatch(selectAnswer(index));
+    const handleAnswerSelect = (answer: AnswerType) => {
+        dispatch(selectAnswer(answer));
     }
 
     return (
@@ -31,7 +31,10 @@ const Question: React.FC<Props> = ({ question  }) => {
             <h2>{ question?.question }</h2>
             <ul>
                 { question?.answers.map((answer, index) => {
-                    return <Answer key={ `${question?.id}-${answer.id}`} answer={answer} active={answers[currentQuestionIndex] === index ? true : false} onClick={()=>handleAnswerSelect(index)} />
+                    return <Answer key={ `${question?.id}-${answer.id}`}
+                                   answer={answer}
+                                   active={answers[currentQuestionIndex]?.id === index+1 ? true : false}
+                                   onClick={()=>handleAnswerSelect(answer)} />
                 })}
             </ul>
         </StyledList>

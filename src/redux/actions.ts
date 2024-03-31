@@ -1,4 +1,4 @@
-import { QuestionType, ActionType, QuizAction } from "../types/quizTypes";
+import { QuestionType, ActionType, QuizAction, AnswerType } from "../types/quizTypes";
 
 export const setQuestions = (questions: QuestionType[]): QuizAction => ({
     type: ActionType.SET_QUESTIONS,
@@ -13,6 +13,10 @@ export const previousQuestion = (): QuizAction => ({
     type: ActionType.PREVIOUS_QUESTION,
 });
 
-export const selectAnswer  = ( answerIndex: number): QuizAction => ({
-    type: ActionType.SELECT_ANSWER, answerIndex ,
+export const selectAnswer  = ( answer: AnswerType): QuizAction => ({
+    type: ActionType.SELECT_ANSWER, answer ,
+});
+
+export const getScore = (): QuizAction => ({
+    type: ActionType.CALCULATE_SCORE,
 });

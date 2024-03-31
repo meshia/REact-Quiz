@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" Component={QuizPage} />
-          <Route path="/city/:name" Component={ScorePage} />
+          <Route path="/score" Component={ScorePage} />
         </Routes>
       </BrowserRouter>
     </div>

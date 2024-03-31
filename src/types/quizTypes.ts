@@ -4,6 +4,7 @@ export enum ActionType {
     NEXT_QUESTION = 'NEXT_QUESTION',
     PREVIOUS_QUESTION = 'PREVIOUS_QUESTION',
     SELECT_ANSWER = 'SELECT_ANSWER',
+    CALCULATE_SCORE = 'CALCULATE_SCORE',
 }
 export interface QuestionType {
     id: number,
@@ -21,8 +22,10 @@ export interface QuizState {
     questions: QuestionType[];
     currentQuestionIndex: number;
     answers: {
-        [key: string]: number
+        [key: string]: any;
+        [key: number]: AnswerType
     };
+    score: number;
 }
 
 interface SetQuestionsAction {
@@ -44,8 +47,13 @@ interface PreviousQuestionAction {
 interface SelectAnswerAction {
     [key: string]: any;
     type: ActionType.SELECT_ANSWER;
-    answerIndex: number;
+    answer: AnswerType;
 }
 
-export type QuizAction = SetQuestionsAction | NextQuestionAction | PreviousQuestionAction | SelectAnswerAction;
+interface getScoreAction {
+    [key: string]: any;
+    type: ActionType.CALCULATE_SCORE;
+}
+
+export type QuizAction = SetQuestionsAction | NextQuestionAction | PreviousQuestionAction | SelectAnswerAction | getScoreAction;
   

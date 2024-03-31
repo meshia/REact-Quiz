@@ -5,10 +5,12 @@ import { setQuestions, nextQuestion, previousQuestion } from '../redux/actions';
 import { fetchQuestions } from '../services/questionsService';
 import Question from '../components/Question';
 import Button from '../components/Button';
+import { useNavigate } from "react-router-dom";
 
 const QuizPage: React.FC = () => {
     const { questions, currentQuestionIndex,answers } = useSelector((state: RootState) => state.quiz);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(()=> {
         if(questions.length === 0) {
@@ -28,13 +30,18 @@ const QuizPage: React.FC = () => {
         dispatch(previousQuestion());
     }
 
+    const handleSubmit = () => {
+        navigate('/score');
+    }
+
     return (
         <div className='quiz-page'>
-            <h1>QuizPage</h1>
+            <h1>Quiz</h1>
+            <h2>Please Answer the Following Questions</h2>
             { currentQuestionIndex > 0 && <Button active={true} label="Previous Question" onClick={handlePreviousQuestion}/>}
-            { currentQuestionIndex < questions.length && <Button active={answers[currentQuestionIndex] !== undefined ? true : false} label="Next Question" onClick={handleNextQuestion}/>}
+            { currentQuestionIndex < questions.length-1 && <Button active={answers[currentQuestionIndex] !== undefined ? true : false} label="Next Question" onClick={handleNextQuestion}/>}
+            { currentQuestionIndex === questions.length-1 && <Button active={answers[currentQuestionIndex] !== undefined ? true : false} label="Submit" onClick={handleSubmit}/>}
             { <Question question={questions[currentQuestionIndex]} /> }
-            { currentQuestionIndex === questions.length && <Button active={true} label="Submit" onClick={()=> console.log("DONE!")}/>}
         </div>
     )
 }
