@@ -1,6 +1,9 @@
 
 export enum ActionType {
-    SET_CITIES = 'SET_CITIES',
+    SET_QUESTIONS = 'SET_QUESTIONS',
+    NEXT_QUESTION = 'NEXT_QUESTION',
+    PREVIOUS_QUESTION = 'PREVIOUS_QUESTION',
+    SELECT_ANSWER = 'SELECT_ANSWER',
 }
 export interface QuestionType {
     id: number,
@@ -17,14 +20,32 @@ export interface AnswerType {
 export interface QuizState {
     questions: QuestionType[];
     currentQuestionIndex: number;
-    answers: AnswerType[];
+    answers: {
+        [key: string]: AnswerType
+    };
 }
 
 interface SetQuestionsAction {
-    type: typeof ActionType.SET_CITIES;
-    payload: QuestionType[];
     [key: string]: any;
+    type: typeof ActionType.SET_QUESTIONS;
+    payload: QuestionType[];
 }
 
-export type QuizAction = SetQuestionsAction ;
+interface NextQuestionAction {
+    [key: string]: any;
+    type: ActionType.NEXT_QUESTION;
+  }
+
+interface PreviousQuestionAction {
+    [key: string]: any;
+    type: ActionType.PREVIOUS_QUESTION;
+}
+  
+interface SelectAnswerAction {
+    [key: string]: any;
+    type: ActionType.SELECT_ANSWER;
+    answerIndex: number;
+}
+
+export type QuizAction = SetQuestionsAction | NextQuestionAction | PreviousQuestionAction | SelectAnswerAction;
   
