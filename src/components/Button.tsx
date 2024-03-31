@@ -14,16 +14,21 @@ const StyledButton = styled.button`
     &:hover {
         background-color: var(--secondary-color);
     }
+    &.disabled {
+        pointer-events: none;
+        opacity: 0.3;
+    }
 `;
 
 interface Props {
     label: string,
+    active: boolean,
     onClick: () => void;
 }
 
-const Button: React.FC<Props> = ({ label, onClick }) => {
+const Button: React.FC<Props> = ({ label, onClick, active = true}) => {
     return (
-        <StyledButton onClick={ onClick }>
+        <StyledButton className={`${active ? '' : 'disabled'}`} onClick={ onClick }>
             { label }
         </StyledButton>
     )
