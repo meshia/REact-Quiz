@@ -21,7 +21,7 @@ export interface QuizState {
     questions: QuestionType[];
     currentQuestionIndex: number;
     answers: {
-        [key: string]: AnswerType
+        [key: string]: number
     };
 }
 
