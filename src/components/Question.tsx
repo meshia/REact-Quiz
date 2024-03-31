@@ -20,8 +20,7 @@ interface Props {
 
 const Question: React.FC<Props> = ({ question  }) => { 
     const dispatch = useDispatch();
-    const { currentQuestionIndex, answers } = useSelector((state: RootState) => state.quiz);
-
+    const { currentQuestionIndex = 0, answers } = useSelector((state: RootState) => state.quiz);
     const handleAnswerSelect = (answer: AnswerType) => {
         dispatch(selectAnswer(answer));
     }
