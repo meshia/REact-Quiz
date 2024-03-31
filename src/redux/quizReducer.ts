@@ -1,4 +1,4 @@
-import { QuizState } from "../types/quizTyes";
+import { QuizState } from "../types/quizTypes";
 
 const initialState: QuizState = {
     questions: [],
@@ -7,8 +7,12 @@ const initialState: QuizState = {
   };
   
   const quizReducer = (state = initialState, action: any) => {
-    // Implement reducer logic based on action types
-    return state;
+    switch (action.type) {
+        case "SET_CITIES":
+            return {...state, questions: action.payload};
+        default:
+        return state;
+    }
   };
   
   export default quizReducer;

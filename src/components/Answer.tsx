@@ -1,8 +1,8 @@
 import React from 'react';
-import { Answer } from '../types/quizTyes';
+import { AnswerType } from '../types/quizTypes';
 
 interface Props {
-    item: Answer
+    item: AnswerType
 }
 
 const Answer: React.FC<Props> = ({ item  }) => {
